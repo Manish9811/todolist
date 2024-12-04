@@ -4,10 +4,9 @@ import InputField from "./InputField"
 
 const EditTask = () => {
     const {editBoxStatus,setEditBoxStatus} = useContext(MyContext);
-    const [currentSavedData,setCurrentSavedData] = useState({list: '', desc : ''});
 
-    const [updateListValue,setUpdateListValue] = useState('');
-    const [updateDescValue,setUpdateDescValue] = useState('');
+    const [updateListValue,setUpdateListValue] = useState();
+    const [updateDescValue,setUpdateDescValue] = useState();
 
     const updateTask = ()  => {
 
