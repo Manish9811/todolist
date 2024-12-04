@@ -3,15 +3,16 @@
 import InputField from './InputField';
 import React, { useContext, useEffect, useState } from 'react';
 import { MyContext } from '../Context/TaskSaveContext.js';
+import EditTask from './EditTask';
 
 const HomeContent = () => {
 
     const userList = []
 
-    const [list, setList] = React.useState('');
-    const [description, setDescription] = React.useState('');
+    const [list, setList] = React.useState();
+    const [description, setDescription] = React.useState();
 
-    const { userSavedTask, setUserSavedTask,alertDeleteTask } = useContext(MyContext);
+    const { userSavedTask, setUserSavedTask,alertDeleteTask, editBoxStatus } = useContext(MyContext);
 
 
     const saveList = (e) => {
@@ -59,21 +60,24 @@ const HomeContent = () => {
     useEffect(() => {
         const savedData = JSON.parse(localStorage.getItem('userList'));
         setUserSavedTask(savedData)
-    }, [alertDeleteTask])
+    }, [alertDeleteTask, editBoxStatus])
 
  
 
 
     return (
+        <>
+        {editBoxStatus != 'hide' && <EditTask />}
         <div className='h-auto bg-green mt-5'>
             <form className="flex flex-col items-center mt-3">
                 <InputField type={'text'} placeholder={'Enter the list'} name={"list"} changeEvent={setList} inputValue={list} />
                 <InputField type={'text'} placeholder={'Enter list desc'} name={"desc"} changeEvent={setDescription} inputValue={description} />
 
-                <button className='bg-black mt-3 w-60 p-2 mb-2 rounded-xl text-white' onClick={saveList}> Save List </button>
+                <button type='submit' className='bg-black mt-3 w-60 p-2 mb-2 rounded-xl text-white' onClick={saveList}> Save List </button>
 
             </form>
         </div>
+        </>
     )
 }
 

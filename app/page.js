@@ -10,11 +10,14 @@ export default function Home() {
 
   const [userSavedTask, setUserSavedTask] = useState();
   const [alertDeleteTask,setAlertDeleteTask] = useState();
+  const [editBoxStatus,setEditBoxStatus] = useState('hide');
+
+
   return (
     <div className="h-screen mt-3">
       <Nav />
 
-      <MyContext.Provider value={{ userSavedTask, setUserSavedTask,alertDeleteTask,setAlertDeleteTask }}>
+      <MyContext.Provider value={{ userSavedTask, setUserSavedTask,alertDeleteTask,setAlertDeleteTask , editBoxStatus,setEditBoxStatus}}>
         <HomeContent />
         <SavedLists />
       </MyContext.Provider>
