@@ -35,7 +35,7 @@ const EditTask = () => {
                 setUpdateDescValue(value.description)
             }
         })
-    },[])
+    },[editBoxStatus])
     return (
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-red-400 h-60 w-80 flex-col items-center justify-center p-2">
 
