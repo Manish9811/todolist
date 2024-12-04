@@ -15,8 +15,6 @@ const EditTask = () => {
         savedTasks[editBoxStatus].list = updateListValue
         savedTasks[editBoxStatus].description = updateDescValue
         
-        console.log(savedTasks)
-
         localStorage.clear();
 
         localStorage.setItem('userList', JSON.stringify(savedTasks))
